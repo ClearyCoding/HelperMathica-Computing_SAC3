@@ -1,0 +1,52 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top right,
+    #f16666,
+    #fd7b7b,
+    #f17878,
+    #f65252,
+    #df5b5b,
+    #f36f6f,
+    #fb7272,
+    #f85d5d,
+    #ed6c6c) fixed;
+    background-size: 600% 600%;
+    animation: AnimationName 100s linear infinite;
+}
+@keyframes AnimationName {
+    0%{background-position: 0 50%}
+    50%{background-position: 100% 50%}
+    100%{background-position: 0 50%}
+}
+
+h1, h2, h3, h4, h5, h6, p, div, button, a {
+    font-family: Roboto, Arial, sans-serif;
+    color: white;
+}
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+button {
+    border: solid 3px white;
+    background-color: unset;
+    font-size: 1.25rem;
+    border-radius: 7px;
+
+    text-align: center;
+    box-sizing: border-box;
+    min-width: 145px;
+    padding: 20px;
+    margin: 10px;
+
+    cursor: pointer;
+}
+button:hover {
+    background: #ffffff;
+    font-weight: bold;
+    color: #a60202;
+}
