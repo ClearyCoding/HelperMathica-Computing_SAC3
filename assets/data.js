@@ -1,6 +1,6 @@
 export const commandData = {
-    general: {},
-    further: {},
-    methods: {},
-    specialist: {}
+    General: {},
+    Further: {},
+    Methods: {},
+    Specialist: {}
 }
