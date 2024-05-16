@@ -1,7 +1,7 @@
 import {commandData} from './assets/data.js';
 
 const main = document.querySelector('main');
-const startButton = document.querySelector('#start');
+const startButton = document.querySelector('#start_button');
 
 function displaySubjects() {
     let buttonsHTML = '';

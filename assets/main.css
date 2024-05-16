@@ -1,21 +1,20 @@
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    inset: 0;
+@font-face {
+    font-family: 'Cascadia-Mono';
+    src: url('assets/CascadiaMono-Regular.otf');
+}
+.backdrop {
     background: linear-gradient(to top right,
     #f16666,
-    #fd7b7b,
-    #f17878,
-    #f65252,
-    #df5b5b,
-    #f36f6f,
-    #fb7272,
-    #f85d5d,
-    #ed6c6c) fixed;
+    #d67575,
+    #bc4e4e,
+    #fa4141,
+    #ff8080,
+    #dd5c5c,
+    #f67f7f,
+    #dd4141,
+    #bc2828) fixed;
     background-size: 600% 600%;
-    animation: AnimationName 100s linear infinite;
+    animation: AnimationName 60s linear infinite;
 }
 @keyframes AnimationName {
     0%{background-position: 0 50%}
@@ -24,7 +23,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6, p, div, button, a {
-    font-family: Roboto, Arial, sans-serif;
+    font-family: 'Cascadia-Mono', Arial, sans-serif;
     color: white;
 }
 h1, h2, h3, h4, h5, h6, p {
@@ -49,4 +48,17 @@ button:hover {
     background: #ffffff;
     font-weight: bold;
     color: #a60202;
+}
+
+/* Situational */
+#launch-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    inset: 0;
+}
+#launch-branding {
+    height: 12rem;
 }
