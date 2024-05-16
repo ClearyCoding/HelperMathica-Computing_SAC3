@@ -1,6 +1,12 @@
 export const commandData = {
-    Further: {},
-    General: {},
-    Methods: {},
-    Specialist: {}
+    'Further': {},
+    'General': {},
+    'Methods': {
+        'Quadratics': {},
+        'Polynomials': {
+            'Cubic': {},
+            'Quartic': {},
+        },
+    },
+    'Specialist': {},
 }
