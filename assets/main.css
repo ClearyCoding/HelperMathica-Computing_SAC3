@@ -1,6 +1,6 @@
 @font-face {
     font-family: 'Cascadia-Mono';
-    src: url('assets/CascadiaMono-Regular.otf');
+    src: url('/assets/CascadiaMono-Regular.otf');
 }
 .backdrop {
     background: linear-gradient(to top right,
