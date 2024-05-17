@@ -4,7 +4,7 @@ const main = document.querySelector('main');
 
 function displayStart() {
     main.innerHTML = `
-        <img src="/assets/images/brand.png" alt="HelperMathica Branding" id="start-branding" />
+        <img draggable="false" src="/assets/images/brand.webp" alt="HelperMathica Branding" id="start-branding" />
         <button id="start_button">Start</button>
     `
     document.querySelector('#start_button').addEventListener('click', () => {
@@ -19,7 +19,7 @@ function displaySubjects() {
     }
     main.innerHTML = `
         <header>
-            <img id="header-company" src="assets/images/product_full.png" alt="ITer8ive Solutions HelperMathica">
+            <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
             <nav id="nav"></nav>
             <h2></h2>
         </header>
@@ -44,7 +44,7 @@ function displayTopics(subject) {
     }
     main.innerHTML = `
         <header>
-            <img id="header-company" src="assets/images/product_full.png" alt="ITer8ive Solutions HelperMathica">
+            <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
             <nav id="nav"></nav>
             <h2></h2>
         </header>
@@ -69,7 +69,7 @@ function displayFormulas(subject, topic) {
     }
     main.innerHTML = `
         <header>
-            <img id="header-company" src="assets/images/product_full.png" alt="ITer8ive Solutions HelperMathica">
+            <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
             <nav id="nav"></nav>
             <h2></h2>
         </header>
