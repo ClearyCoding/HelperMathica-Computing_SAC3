@@ -5,10 +5,10 @@
 .backdrop {
     background: linear-gradient(to top right,
     #efc4c4,
-    #e8c3c3,
-    #cc9f9f,
+    #dabebe,
+    #d59c9c,
     #d3afaf,
-    #e3b9b9,
+    #e3b3b3,
     #dab0b0,
     #fdd0d0,
     #e8b8b8,
@@ -22,7 +22,7 @@
     100%{background-position: 0 50%}
 }
 
-h1, h2, h3, h4, h5, h6, p, div, button, a, nav {
+h1, h2, h3, h4, h5, h6, p, div, button, a, nav, input, ::placeholder {
     font-family: 'Cascadia-Mono', Arial, sans-serif;
     color: #ffffff;
 }
@@ -87,6 +87,7 @@ header {
 #nav span:hover {
     color: #eaeaea;
     cursor: pointer;
+    text-decoration: underline;
 }
 
 #buttons {
@@ -123,4 +124,109 @@ header {
 #github-card a:hover {
     filter: brightness(90%);
     text-decoration: underline;
+}
+
+#search-results {
+    width: 100%;
+}
+@media (max-width: 120rem) {
+    #search-results {
+        width: 100rem;
+    }
+    @media (max-width: 100rem) {
+        #search-results {
+            width: 80rem;
+        }
+        @media (max-width: 80rem) {
+            #search-results {
+                width: 60rem;
+            }
+            @media (max-width: 60rem) {
+                #search-results {
+                    width: 40rem;
+                }
+                @media (max-width: 40rem) {
+                    #search-results {
+                        width: 20rem;
+                    }
+                }
+            }
+        }
+    }
+}
+#search-results {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, 20rem);
+}
+
+#search-results-label {
+    text-align: center;
+    margin: 15px;
+    font-size: 1.5rem;
+}
+#results-none {
+    font-weight: normal;
+}
+.search-result {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    justify-content: center;
+    width: calc(100% - 20px);
+    margin: 10px;
+    padding: 30px 10px 10px 10px;
+    box-sizing: border-box;
+    border: solid 3px #a60202;
+    border-radius: 7px;
+}
+.search-result-type {
+    font-size: 1rem;
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 5px;
+    border-radius: 0 0 7px 0;
+    background: #a60202;
+}
+.search-result-dir {
+    font-size: 1rem;
+    font-weight: normal;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+}
+.search-result h3 {
+    font-size: 2rem;
+    cursor: pointer;
+}
+.search-result h3:hover {
+    text-decoration: underline;
+    color: #eaeaea;
+}
+.search-result p {
+    font-size: 0.8rem;
+}
+
+#search-input {
+    position: absolute;
+    right: 45px;
+    background: none;
+    border: none;
+    border-bottom: white solid 3px;
+    border-radius: 3px;
+    outline: none
+}
+#search-input::-webkit-search-cancel-button {
+    display: none;
+}
+#search-button {
+    width: 20px;
+    position: absolute;
+    right: 20px;
+    cursor: pointer;
+}
+#search-button:hover {
+    filter: brightness(90%);
 }

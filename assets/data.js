@@ -1,27 +1,24 @@
 export const commandData = {
     "Methods": {
-        "U12": {
-            "Linear Relations and Equations": {
-                "Base Functions": {}, 
-                "Custom Functions" : {}
+        "Quadratics": {
+            "Turning Point Form": {
+                description: "Convert Standard Form to Turning Point Form",
             },
-            //... add more topics as required 
-        }, 
-        "U34": {
-            "Linear Relations and Equations": {
-                "Base Functions": {}, 
-                "Custom Functions" : {}
+            "Factorise": {
+                description: "Convert Standard Form to Factorised Form",
             },
-            //... add more topics as required
+        },
+        "Polynomials": {
+            "Division": {
+                description: "Divide polynomials using long division",
+            },
+            "Remainder": {
+                description: "Find the remainder of polynomial division",
+            },
         },
     },
+
     "Specialist": {
-        "U12": {
-            "Linear Relations and Equations": {
-                "Base Functions": {}, 
-                "Custom Functions" : {}
-            },
-            //... add more topics as required
-        }, 
+
     }
 }

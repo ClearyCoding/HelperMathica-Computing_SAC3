@@ -1,8 +1,72 @@
 import {commandData} from './assets/data.js';
 
 const main = document.querySelector('main');
+const header = document.querySelector('header')
+
+function search(query) {
+    if (query) {
+        main.innerHTML = `
+            <h3 id="search-results-label">Search Results:</h3>
+            <section id="search-results"></section>
+        `
+        generateHeader(null, null, null, "Search");
+
+
+        let matches = []
+        for (const subject in commandData) {
+            if (subject.toLowerCase().includes(query.toLowerCase())) {
+                matches.push([subject]);
+            }
+            for (const topic in commandData[subject]) {
+                if (topic.toLowerCase().includes(query.toLowerCase())) {
+                    matches.push([subject, topic]);
+                }
+                for (const formula in commandData[subject][topic]) {
+                    if (formula.toLowerCase().includes(query.toLowerCase()) ||
+                        commandData[subject][topic][formula].description.toLowerCase().includes(query.toLowerCase())) {
+                        matches.push([subject, topic, formula]);
+                    }
+                }
+            }
+        }
+
+        if (matches.length === 0) {
+            main.innerHTML += `
+                <h3 id="results-none">No Results For "${query}"</h3>
+            `
+        } else {
+            matches.sort((a, b) => a.length - b.length);
+
+            for (const match of matches) {
+                const type = ['Subject', 'Topic', 'Formula'][match.length - 1]
+                const id = match[match.length - 1].replace(/\s/g, '-');
+                document.querySelector('#search-results').innerHTML += `
+                <article class="search-result">
+                    <h4 class="search-result-type">${type}</h4>
+                    <h4 class="search-result-dir">
+                        ${match.length > 1 ? match[0] : ''}
+                        ${match.length > 2 ? ` > ${match[1]}` : ''}
+                    </h4>
+                    <h3 id="search-result-${id}">${match[match.length - 1]}</h3>
+                    ${match.length === 3 ? `<p>${commandData[match[0]][match[1]][match[2]].description}</p>` : ''}
+                </article>
+            `
+                document.querySelector(`#search-result-${id}`).addEventListener('click', () => { //TODO: Fix bug where only last search result works
+                    if (match.length === 1) {
+                        displayTopics(match[0])
+                    } else if (match.length === 2) {
+                        displayFormulas(match[0], match[1])
+                    } else if (match.length === 3) {
+                        displayCommand(match[0], match[1], match[2])
+                    }
+                })
+            }
+        }
+    }
+}
 
 function displayStart() {
+    header.innerHTML = ``
     main.innerHTML = `
         <img draggable="false" src="/assets/images/brand.webp" alt="HelperMathica Branding" id="start-branding" />
         <button id="start_button">Start</button>
@@ -13,23 +77,13 @@ function displayStart() {
 }
 
 function displaySubjects() {
+    generateHeader()
     let buttonsHTML = '';
     for (const subject in commandData) {
         const id = subject.replace(/\s/g, '-');
         buttonsHTML += `<button id="${id}">${subject}</button>`;
     }
-    main.innerHTML = `
-        <header>
-            <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
-            <nav id="nav"></nav>
-            <h2></h2>
-        </header>
-        <section id="buttons">${buttonsHTML}</section>
-    `;
-    generateNav(document.querySelector('#nav'));
-    document.querySelector('#header-company').addEventListener('click', () => {
-        displayStart()
-    })
+    main.innerHTML = `<section id="buttons">${buttonsHTML}</section>`;
 
     for (const subject in commandData) {
         const id = subject.replace(/\s/g, '-');
@@ -40,23 +94,13 @@ function displaySubjects() {
 
 }
 function displayTopics(subject) {
+    generateHeader(subject)
     let buttonsHTML = '';
     for (const topic in commandData[subject]) {
         const id = topic.replace(/\s/g, '-');
         buttonsHTML += `<button id="${id}">${topic}</button>`;
     }
-    main.innerHTML = `
-        <header>
-            <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
-            <nav id="nav"></nav>
-            <h2></h2>
-        </header>
-        <section id="buttons">${buttonsHTML}</section>
-    `;
-    generateNav(document.querySelector('#nav'), subject);
-    document.querySelector('#header-company').addEventListener('click', () => {
-        displayStart()
-    })
+    main.innerHTML = `<section id="buttons">${buttonsHTML}</section>`;
 
     for (const topic in commandData[subject]) {
         const id = topic.replace(/\s/g, '-');
@@ -66,24 +110,13 @@ function displayTopics(subject) {
     }
 }
 function displayFormulas(subject, topic) {
+    generateHeader(subject, topic)
     let buttonsHTML = '';
     for (const formula in commandData[subject][topic]) {
         const id = formula.replace(/\s/g, '-');
         buttonsHTML += `<button id="${id}">${formula}</button>`;
     }
-    main.innerHTML = `
-        <header>
-            <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
-            <nav id="nav"></nav>
-            <h2></h2>
-        </header>
-        <section id="buttons">${buttonsHTML}</section>
-    `;
-    generateNav(document.querySelector('#nav'), subject, topic);
-    document.querySelector('#header-company').addEventListener('click', () => {
-        displayStart()
-    })
-
+    main.innerHTML = `<section id="buttons">${buttonsHTML}</section>`;
     for (const formula in commandData[subject][topic]) {
         const id = formula.replace(/\s/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
@@ -92,30 +125,42 @@ function displayFormulas(subject, topic) {
     }
 }
 function displayCommand(subject, topic, formula) {
-    main.innerHTML = `
+    generateHeader(subject, topic, formula)
+    main.innerHTML = ``
+}
+function generateHeader(subject, topic, formula, other) {
+    header.innerHTML = `
         <header>
             <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
             <nav id="nav"></nav>
-            <h2></h2>
+            <input type="search" id="search-input" placeholder="Search">
+            <img alt="search" draggable="false" src="/assets/images/search.png" id="search-button">
         </header>
     `;
-    generateNav(document.querySelector('#nav'), subject, topic, formula);
-    document.querySelector('#header-company').addEventListener('click', () => {
-        displayStart()
-    })
-}
 
-function generateNav(html_object, subject, topic, formula) {
-    html_object.innerHTML += `<span id="nav-start">Subjects</span>`;
+    const nav_html = document.querySelector('#nav')
+    nav_html.innerHTML += `<span id="nav-start">Subjects</span>`;
     if (subject) {
-        html_object.innerHTML += `  >  <span id="nav-subject">${subject}</span>`;
+        nav_html.innerHTML += `  >  <span id="nav-subject">${subject}</span>`;
     }
     if (topic) {
-        html_object.innerHTML += `  >  <span id="nav-topic">${topic}</span>`;
+        nav_html.innerHTML += `  >  <span id="nav-topic">${topic}</span>`;
     }
     if (formula) {
-        html_object.innerHTML += `  >  <span id="nav-formula">${formula}</span>`;
+        nav_html.innerHTML += `  >  <span id="nav-formula">${formula}</span>`;
     }
+    if (other) {
+        nav_html.innerHTML += `  >  ${other}`;
+    }
+    const search_input = document.querySelector('#search-input')
+    search_input.addEventListener("keypress", function (event) {
+        if (event.key === 'Enter') {
+            search(search_input.value)
+        }
+    })
+    document.querySelector('#search-button').addEventListener("click", () => {
+            search(search_input.value)
+    })
     document.querySelector('#nav-start').addEventListener('click', () => {
         displaySubjects();
     })
@@ -134,6 +179,9 @@ function generateNav(html_object, subject, topic, formula) {
             displayCommand(subject, topic, formula);
         })
     }
+    document.querySelector('#header-company').addEventListener('click', () => {
+        displayStart()
+    })
 }
 
 displayStart()
