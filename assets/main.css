@@ -22,7 +22,7 @@
     100%{background-position: 0 50%}
 }
 
-h1, h2, h3, h4, h5, h6, p, div, button, a {
+h1, h2, h3, h4, h5, h6, p, div, button, a, nav {
     font-family: 'Cascadia-Mono', Arial, sans-serif;
     color: #ffffff;
 }
@@ -52,7 +52,7 @@ button:hover {
 }
 
 /* Situational */
-#launch-page {
+main {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -60,6 +60,67 @@ button:hover {
     position: absolute;
     inset: 0;
 }
-#launch-branding {
+#start-branding {
     height: 12rem;
+}
+
+header {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    right: 0;
+    left: 0;
+    height: 4rem;
+    padding: 0 20px;
+}
+#header-company {
+    height: 4rem;
+    position: absolute;
+    left: 20px;
+    cursor: pointer;
+}
+#nav {
+    font-size: 1.2rem;
+}
+#nav span:hover {
+    color: #eaeaea;
+    cursor: pointer;
+}
+
+#buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#buttons button {
+    width: 16rem;
+}
+
+#github-card {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    text-align: center;
+    padding: 0.75rem;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    z-index: 1;
+}
+#github-card a {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+.github-logo {
+    width: 1.5rem;
+    margin-left: 7px;
+}
+#github-card a:hover {
+    filter: brightness(90%);
+    text-decoration: underline;
 }
