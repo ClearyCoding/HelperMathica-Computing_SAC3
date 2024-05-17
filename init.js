@@ -31,6 +31,7 @@ function displayTopics(subject) {
     }
 }
 function displayFormulas(subject, topic) {
+    console.log(commandData[subject][topic]);
     let buttonsHTML = '';
     for (const formula in commandData[subject][topic]) {
         buttonsHTML += `<button id="${formula}">${formula}</button>`;
@@ -43,7 +44,9 @@ function displayFormulas(subject, topic) {
         })
     }
 }
-function displayCommand(subject, topic, formula) {}
+function displayCommand(subject, topic, formula) {
+
+}
 
 startButton.addEventListener('click', () => {
     displaySubjects()

@@ -4,17 +4,17 @@
 }
 .backdrop {
     background: linear-gradient(to top right,
-    #f16666,
-    #d67575,
-    #bc4e4e,
-    #fa4141,
-    #ff8080,
-    #dd5c5c,
-    #f67f7f,
-    #dd4141,
-    #bc2828) fixed;
-    background-size: 600% 600%;
-    animation: AnimationName 60s linear infinite;
+    #efc4c4,
+    #e8c3c3,
+    #cc9f9f,
+    #d3afaf,
+    #e3b9b9,
+    #dab0b0,
+    #fdd0d0,
+    #e8b8b8,
+    #ffb6b6) fixed;
+    background-size: 400% 400%;
+    animation: AnimationName 80s linear infinite;
 }
 @keyframes AnimationName {
     0%{background-position: 0 50%}
@@ -24,17 +24,17 @@
 
 h1, h2, h3, h4, h5, h6, p, div, button, a {
     font-family: 'Cascadia-Mono', Arial, sans-serif;
-    color: white;
+    color: #ffffff;
 }
 h1, h2, h3, h4, h5, h6, p {
     margin: 0;
 }
 
 button {
-    border: solid 3px white;
-    background-color: unset;
+    border: solid 3px #a60202;
+    background: linear-gradient(to right, #d80404, #cd0101, #d80404);
     font-size: 1.25rem;
-    border-radius: 7px;
+    border-radius: 5px;
 
     text-align: center;
     box-sizing: border-box;
@@ -45,9 +45,10 @@ button {
     cursor: pointer;
 }
 button:hover {
-    background: #ffffff;
+    border-color: #8f0101;
+    background: linear-gradient(to right, #c30202, #b80000, #c30202);
     font-weight: bold;
-    color: #a60202;
+    color: #ffffff;
 }
 
 /* Situational */
