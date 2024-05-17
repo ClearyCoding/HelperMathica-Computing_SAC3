@@ -15,7 +15,8 @@ function displayStart() {
 function displaySubjects() {
     let buttonsHTML = '';
     for (const subject in commandData) {
-        buttonsHTML += `<button id="${subject}">${subject}</button>`;
+        const id = subject.replace(/\s/g, '-');
+        buttonsHTML += `<button id="${id}">${subject}</button>`;
     }
     main.innerHTML = `
         <header>
@@ -25,13 +26,14 @@ function displaySubjects() {
         </header>
         <section id="buttons">${buttonsHTML}</section>
     `;
-    generateNav(document.querySelector('#nav'), null, null, null);
+    generateNav(document.querySelector('#nav'));
     document.querySelector('#header-company').addEventListener('click', () => {
         displayStart()
     })
 
     for (const subject in commandData) {
-        document.querySelector(`#${subject}`).addEventListener('click', () => {
+        const id = subject.replace(/\s/g, '-');
+        document.querySelector(`#${id}`).addEventListener('click', () => {
             displayTopics(subject);
         })
     }
@@ -40,7 +42,8 @@ function displaySubjects() {
 function displayTopics(subject) {
     let buttonsHTML = '';
     for (const topic in commandData[subject]) {
-        buttonsHTML += `<button id="${topic}">${topic}</button>`;
+        const id = topic.replace(/\s/g, '-');
+        buttonsHTML += `<button id="${id}">${topic}</button>`;
     }
     main.innerHTML = `
         <header>
@@ -50,22 +53,23 @@ function displayTopics(subject) {
         </header>
         <section id="buttons">${buttonsHTML}</section>
     `;
-    generateNav(document.querySelector('#nav'), subject, null, null);
+    generateNav(document.querySelector('#nav'), subject);
     document.querySelector('#header-company').addEventListener('click', () => {
         displayStart()
     })
 
     for (const topic in commandData[subject]) {
-        document.querySelector(`#${topic}`).addEventListener('click', () => {
+        const id = topic.replace(/\s/g, '-');
+        document.querySelector(`#${id}`).addEventListener('click', () => {
             displayFormulas(subject, topic);
         })
     }
 }
 function displayFormulas(subject, topic) {
-    console.log(commandData[subject][topic]);
     let buttonsHTML = '';
     for (const formula in commandData[subject][topic]) {
-        buttonsHTML += `<button id="${formula}">${formula}</button>`;
+        const id = formula.replace(/\s/g, '-');
+        buttonsHTML += `<button id="${id}">${formula}</button>`;
     }
     main.innerHTML = `
         <header>
@@ -75,20 +79,32 @@ function displayFormulas(subject, topic) {
         </header>
         <section id="buttons">${buttonsHTML}</section>
     `;
-    generateNav(document.querySelector('#nav'), subject, topic, null);
+    generateNav(document.querySelector('#nav'), subject, topic);
     document.querySelector('#header-company').addEventListener('click', () => {
         displayStart()
     })
 
     for (const formula in commandData[subject][topic]) {
-        document.querySelector(`#${formula}`).addEventListener('click', () => {
-            displayFormulas(subject, topic, formula);
+        const id = formula.replace(/\s/g, '-');
+        document.querySelector(`#${id}`).addEventListener('click', () => {
+            displayCommand(subject, topic, formula);
         })
     }
 }
 function displayCommand(subject, topic, formula) {
-
+    main.innerHTML = `
+        <header>
+            <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
+            <nav id="nav"></nav>
+            <h2></h2>
+        </header>
+    `;
+    generateNav(document.querySelector('#nav'), subject, topic, formula);
+    document.querySelector('#header-company').addEventListener('click', () => {
+        displayStart()
+    })
 }
+
 function generateNav(html_object, subject, topic, formula) {
     html_object.innerHTML += `<span id="nav-start">Subjects</span>`;
     if (subject) {
