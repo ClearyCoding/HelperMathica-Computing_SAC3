@@ -38,19 +38,19 @@ function search(query) {
             matches.sort((a, b) => a.length - b.length);
 
             for (const match of matches) {
-                const type = ['Subject', 'Topic', 'Formula'][match.length - 1]
+                const type = match.length
                 const id = match[match.length - 1].replace(/\s/g, '-');
                 document.querySelector('#search-results').innerHTML += `
-                <article class="search-result">
-                    <h4 class="search-result-type">${type}</h4>
-                    <h4 class="search-result-dir">
-                        ${match.length > 1 ? match[0] : ''}
-                        ${match.length > 2 ? ` > ${match[1]}` : ''}
-                    </h4>
-                    <h3 id="search-result-${id}">${match[match.length - 1]}</h3>
-                    ${match.length === 3 ? `<p>${commandData[match[0]][match[1]][match[2]].description}</p>` : ''}
-                </article>
-            `
+                    <article class="search-result">
+                        <h4 class="search-result-type">${['Subject', 'Topic', 'Formula'][type - 1]}</h4>
+                        <h4 class="search-result-dir">
+                            ${match.length > 1 ? match[0] : ''}
+                            ${match.length > 2 ? ` > ${match[1]}` : ''}
+                        </h4>
+                        <h3 id="search-result-${id}" onclick="">${match[match.length - 1]}</h3>
+                        ${match.length === 3 ? `<p>${commandData[match[0]][match[1]][match[2]].description}</p>` : ''}
+                    </article>
+               `
                 document.querySelector(`#search-result-${id}`).addEventListener('click', () => { //TODO: Fix bug where only last search result works
                     if (match.length === 1) {
                         displayTopics(match[0])
