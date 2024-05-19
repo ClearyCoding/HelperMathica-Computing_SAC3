@@ -55,21 +55,21 @@ function search(query) {
         } else {
             matches.sort((a, b) => a.length - b.length);
 
-            for (const match of matches) {
-                const type = match.length
-                const id = match[match.length - 1].replace(/\s/g, '-');
+            for (const [index, match] of matches.entries()) {
                 document.querySelector('#search-results').innerHTML += `
                     <article class="search-result">
-                        <h4 class="search-result-type">${['Subject', 'Topic', 'Formula'][type - 1]}</h4>
+                        <h4 class="search-result-type">${['Subject', 'Topic', 'Formula'][match.length - 1]}</h4>
                         <h4 class="search-result-dir">
                             ${match.length > 1 ? match[0] : ''}
                             ${match.length > 2 ? ` > ${match[1]}` : ''}
                         </h4>
-                        <h3 id="search-result-${id}" onclick="">${match[match.length - 1]}</h3>
+                        <h3 id="search-result-${index}" onclick="">${match[match.length - 1]}</h3>
                         ${match.length === 3 ? `<p>${commandData[match[0]][match[1]][match[2]].description}</p>` : ''}
                     </article>
                `
-                document.querySelector(`#search-result-${id}`).addEventListener('click', () => { //TODO: Fix bug where only last search result works
+            }
+            for (const [index, match] of matches.entries()) {
+                document.querySelector(`#search-result-${index}`).addEventListener('click', () => {
                     if (match.length === 1) {
                         displayTopics(match[0])
                     } else if (match.length === 2) {
