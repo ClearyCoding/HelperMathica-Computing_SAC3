@@ -11,20 +11,38 @@ function search(query) {
         `
         generateHeader(null, null, null, "Search");
 
+        query = query.replace(/[^a-zA-Z0-9 ]/g, "");
+        const query_split = query.split(" ")
 
         let matches = []
-        for (const subject in commandData) {
-            if (subject.toLowerCase().includes(query.toLowerCase())) {
-                matches.push([subject]);
-            }
-            for (const topic in commandData[subject]) {
-                if (topic.toLowerCase().includes(query.toLowerCase())) {
-                    matches.push([subject, topic]);
+        let uniqueMatches = new Set(); // Initialize a new Set
+
+        for (const i in query_split) {
+            for (const subject in commandData) {
+                if (subject.toLowerCase().includes(query_split[i].toLowerCase())) {
+                    let match = [subject];
+                    if (!uniqueMatches.has(JSON.stringify(match))) { // Check if the Set contains the match
+                        uniqueMatches.add(JSON.stringify(match)); // Add the match to the Set
+                        matches.push(match); // Push the match into the matches array
+                    }
                 }
-                for (const formula in commandData[subject][topic]) {
-                    if (formula.toLowerCase().includes(query.toLowerCase()) ||
-                        commandData[subject][topic][formula].description.toLowerCase().includes(query.toLowerCase())) {
-                        matches.push([subject, topic, formula]);
+                for (const topic in commandData[subject]) {
+                    if (topic.toLowerCase().includes(query_split[i].toLowerCase())) {
+                        let match = [subject, topic];
+                        if (!uniqueMatches.has(JSON.stringify(match))) {
+                            uniqueMatches.add(JSON.stringify(match));
+                            matches.push(match);
+                        }
+                    }
+                    for (const formula in commandData[subject][topic]) {
+                        if (formula.toLowerCase().includes(query_split[i].toLowerCase()) ||
+                            commandData[subject][topic][formula].description.toLowerCase().includes(query_split[i].toLowerCase())) {
+                            let match = [subject, topic, formula];
+                            if (!uniqueMatches.has(JSON.stringify(match))) {
+                                uniqueMatches.add(JSON.stringify(match));
+                                matches.push(match);
+                            }
+                        }
                     }
                 }
             }
