@@ -95,6 +95,9 @@ header {
     flex-direction: column;
     align-items: center;
 }
+.buttons-with-back {
+    margin-top: 2.85rem;
+}
 #buttons button {
     width: 16rem;
 }
@@ -229,4 +232,12 @@ header {
 }
 #search-button:hover {
     filter: brightness(90%);
+}
+#back {
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+#back:hover {
+    color: #eaeaea;
+    text-decoration: underline;
 }

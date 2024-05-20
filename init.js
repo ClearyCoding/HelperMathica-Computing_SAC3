@@ -12,7 +12,9 @@ function search(query) {
         generateHeader(null, null, null, "Search");
 
         query = query.replace(/[^a-zA-Z0-9 ]/g, "");
-        const query_split = query.split(" ")
+        let query_split = query.split(" ")
+        query_split = query_split.filter(item => item.trim() !== "");
+        console.log(query_split)
 
         let matches = []
         let uniqueMatches = new Set(); // Initialize a new Set
@@ -118,7 +120,8 @@ function displayTopics(subject) {
         const id = topic.replace(/\s/g, '-');
         buttonsHTML += `<button id="${id}">${topic}</button>`;
     }
-    main.innerHTML = `<section id="buttons">${buttonsHTML}</section>`;
+    main.innerHTML = `<section id="buttons" class="buttons-with-back">${buttonsHTML}</section>`;
+    main.innerHTML += `<h3 id="back">Back</h3>`;
 
     for (const topic in commandData[subject]) {
         const id = topic.replace(/\s/g, '-');
@@ -126,6 +129,10 @@ function displayTopics(subject) {
             displayFormulas(subject, topic);
         })
     }
+
+    document.querySelector(`#back`).addEventListener('click', () => {
+        displaySubjects();
+    })
 }
 function displayFormulas(subject, topic) {
     generateHeader(subject, topic)
@@ -134,13 +141,17 @@ function displayFormulas(subject, topic) {
         const id = formula.replace(/\s/g, '-');
         buttonsHTML += `<button id="${id}">${formula}</button>`;
     }
-    main.innerHTML = `<section id="buttons">${buttonsHTML}</section>`;
+    main.innerHTML = `<section id="buttons" class="buttons-with-back">${buttonsHTML}</section>`;
+    main.innerHTML += `<h3 id="back">Back</h3>`;
     for (const formula in commandData[subject][topic]) {
         const id = formula.replace(/\s/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
             displayCommand(subject, topic, formula);
         })
     }
+    document.querySelector(`#back`).addEventListener('click', () => {
+        displayTopics(subject);
+    })
 }
 function displayCommand(subject, topic, formula) {
     generateHeader(subject, topic, formula)
