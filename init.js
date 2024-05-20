@@ -53,7 +53,11 @@ function search(query) {
         if (matches.length === 0) {
             main.innerHTML += `
                 <h3 id="results-none">No Results For "${query}"</h3>
+                <h4 id="back">Back</h4>
             `
+            document.querySelector(`#back`).addEventListener('click', () => {
+                displaySubjects();
+            })
         } else {
             matches.sort((a, b) => a.length - b.length);
 
@@ -70,6 +74,7 @@ function search(query) {
                     </article>
                `
             }
+            main.innerHTML += `<h3 id="back">Back</h3>`;
             for (const [index, match] of matches.entries()) {
                 document.querySelector(`#search-result-${index}`).addEventListener('click', () => {
                     if (match.length === 1) {
@@ -81,6 +86,9 @@ function search(query) {
                     }
                 })
             }
+            document.querySelector(`#back`).addEventListener('click', () => {
+                displaySubjects();
+            })
         }
     }
 }

@@ -236,6 +236,7 @@ header {
 #back {
     margin-top: 1.5rem;
     cursor: pointer;
+    font-weight: normal;
 }
 #back:hover {
     color: #eaeaea;
