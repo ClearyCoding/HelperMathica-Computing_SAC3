@@ -125,14 +125,14 @@ function displayTopics(subject) {
     generateHeader(subject)
     let buttonsHTML = '';
     for (const topic in commandData[subject]) {
-        const id = subject.replace(/[\s\/]/g, '-');
+        const id = topic.replace(/[\s\/]/g, '-');
         buttonsHTML += `<button id="${id}">${topic}</button>`;
     }
     main.innerHTML = `<section id="buttons" class="buttons-with-back">${buttonsHTML}</section>`;
     main.innerHTML += `<h3 id="back">Back</h3>`;
 
     for (const topic in commandData[subject]) {
-        const id = subject.replace(/[\s\/]/g, '-');
+        const id = topic.replace(/[\s\/]/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
             displayFormulas(subject, topic);
         })
@@ -146,13 +146,13 @@ function displayFormulas(subject, topic) {
     generateHeader(subject, topic)
     let buttonsHTML = '';
     for (const formula in commandData[subject][topic]) {
-        const id = subject.replace(/[\s\/]/g, '-');
+        const id = formula.replace(/[\s\/]/g, '-');
         buttonsHTML += `<button id="${id}">${formula}</button>`;
     }
     main.innerHTML = `<section id="buttons" class="buttons-with-back">${buttonsHTML}</section>`;
     main.innerHTML += `<h3 id="back">Back</h3>`;
     for (const formula in commandData[subject][topic]) {
-        const id = subject.replace(/[\s\/]/g, '-');
+        const id = formula.replace(/[\s\/]/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
             displayCommand(subject, topic, formula);
         })
