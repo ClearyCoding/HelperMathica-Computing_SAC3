@@ -1,159 +1,1959 @@
 export const commandData = {
     "11MMET": {
-        T01: {
-            name: "Linear Relations and Equations",
+        linear: {
             commands: {
                 solvingEquations: {
-                    syntaxAndExplanations: `
-                    Solve[{equations}, {variables}] 
-                        Finds the values of the variables that makes the expression true.
-                    
-                    Solve[{equations}, {variables}, Reals] 
-                        Finds the real values of the variables that makes the expression true.
-                    `, 
-                    examples: `
-                    Solving a linear equation
-                        Input: Solve[2x + 3 == 5, x, Reals]
-                        Output: x -> 1
-
-                    Solving simultaneous equations
-                        Input: Solve[x + y == 11 && x - y == 5, {x, y}]
-                        Output: x -> 8, y -> 3
-                    `
+                    syntax: "Solve[{equations}, {variables}, Reals]",
+                    explanation: "Finds the real values of the variables that makes the expression true." ,
+                    example: "Input: Solve[2x + 3 == 5, x, Reals], Output: x -> 1"
                 }, 
                 solvingInequalities: {
-                    syntaxAndExplanations: `
-                    Reduce[{inequalities}, {variables}] 
-                        Reduces the expression to its simplest form.
-                    `, 
-                    examples: `
-                    Solving a linear inequality
-                        Input: Solve[2x + 3 < 5, x]
-                        Output: x < 1
-                    `
+                    syntax: "Reduce[{inequalities}, {variables}]", 
+                    explanation: "Reduces the expression to its simplest form.", 
+                    example: "Input: Reduce[2x + 3 <= 5, x, Reals], Output: x <= 1"
                 }, 
                 plottingGraphs: {
-                    syntaxAndExplanations: `
-                    Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}] 
-                        Plots the graph of the expressions over the domain and range specified.
-                    `, 
-                    examples: `
-                    Plotting a linear graph
-                        Input: Plot[2x + 3, {x, -10, 10}, PlotRange -> {-10, 10}]
-                        Output: Graph specified
-                    `
+                    syntax: "Plot[{expressions}, {variable, lowerBound, upperBound}]",
+                    explanation: "Plots the graph of the expressions over the domain and range specified.",
+                    example: "Input: Plot[2x + 3, {x, -10, 10}], Output: Graph of y=2x+3 where -10<=x<=10"
                 }, 
-                adjustingParameters: {
-                    syntaxAndExplanations: `
-                    Manipulate[Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}], {parameter, lowerBound, upperBound}] 
-                        - Plots the graph of the expressions over the domain and range specified 
-                        - Provides sliders to adjust the parameters as required
-                    `, 
-                    examples: `
-                    Plotting a linear graph with a parameter
-                        Input: Manipulate[Plot[2x + c, {x, -10, 10}, PlotRange -> {-10, 10}], {c, -10, 10}]
-                        Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])
-                    `
+                plottingGraphsWithParameters: {
+                    syntax: "Manipulate[Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}], {parameter, lowerBound, upperBound}] ",
+                    explanation: "Plots the graph, provides sliders to adjust the parameters as required",
+                    example: "Input: Manipulate[Plot[2x + c, {x, -10, 10}], {c, -10, 10}], Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])"
+                },  
+                distance: {
+                    syntax: "EuclidianDistance[{x1, y1}, {x2, y2}]",
+                    explanation: "Finds the distance between two points",
+                    example: "Input: EuclidianDistance[{1, 2}, {3, 4}], Output: 2*Sqrt[2]"   
+                }, 
+                midpoint: {
+                    syntax: "Midpoint[{x1, y1}, {x2, y2}]",
+                    explanation: "Finds the midpoint of (x1, y1) and (x2, y2). ",
+                    example: "Input: Midpoint[{1, 2}, {3, 4}], Output: {2, 3}"
+                }           
+            }
+        }, 
+        probability: {
+            commands: {
+                findingPermutations: {
+                    syntax: "Permutations[{items}] ",
+                    explanation: "Finds the different permutations of arranging the items. ",
+                    example: "Input: Permutations[{A, B, C}], Output: {{A, B, C}, {A, C, B}, {B, A, C}, {B, C, A}, {C, A, B}, {C, B, A}}"
+                }, 
+                nPr: {
+                    syntax: "nPr[n_, k_]:= Return[n!/(n-k)!] (Shift + Enter)",
+                    explanation: "Finds the number of permutations in which n objects can be arranged in k spots. ",
+                    example: "Input: nPr[3, 2], Output: 6"
+                },
+                nCr: {
+                    syntax: "nCr[n_, k_]:= Return[n!/(k!(n-k)!)] (Shift + Enter)",
+                    explanation: "Finds the number of combinations in which n objects can be arranged in k spots.",
+                    example: "Input: nCr[3, 2], Output: 3"
                 }               
             }
         }, 
-        T02: {
-            name: "Counting Methods and Probability",
+        quadratics: {
             commands: {
-                solvingEquations: {
-                    syntaxAndExplanations: `
-                    Solve[{equations}, {variables}] 
-                        Finds the values of the variables that makes the expression true.
-                    
-                    Solve[{equations}, {variables}, Reals] 
-                        Finds the real values of the variables that makes the expression true.
-                    `, 
-                    examples: `
-                    Solving a linear equation
-                        Input: Solve[2x + 3 == 5, x, Reals]
-                        Output: x -> 1
-
-                    Solving simultaneous equations
-                        Input: Solve[x + y == 11 && x - y == 5, {x, y}]
-                        Output: x -> 8, y -> 3
-                    `
-                }, 
-                solvingInequalities: {
-                    syntaxAndExplanations: `
-                    Reduce[{inequalities}, {variables}] 
-                        Reduces the expression to its simplest form.
-                    `, 
-                    examples: `
-                    Solving a linear inequality
-                        Input: Reduce[2x + 3 < 5, x]
-                        Output: x < 1
-                    `
-                }, 
-                plottingGraphs: {
-                    syntaxAndExplanations: `
-                    Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}] 
-                        Plots the graph of the expressions over the domain and range specified.
-                    `, 
-                    examples: `
-                    Plotting a linear graph
-                        Input: Plot[2x + 3, {x, -10, 10}, PlotRange -> {-10, 10}]
-                        Output: Graph of y = 2x + 3
-                    `
-                }, 
-                adjustingParameters: {
-                    syntaxAndExplanations: `
-                    Manipulate[Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}], {parameter, lowerBound, upperBound}] 
-                        - Plots the graph of the expressions over the domain and range specified 
-                        - Provides sliders to adjust the parameters as required
-                    `, 
-                    examples: `
-                    Plotting a linear graph with a parameter
-                        Input: Manipulate[Plot[2x + c, {x, -10, 10}, PlotRange -> {-10, 10}], {c, -10, 10}]
-                        Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])
-                    `
-                }               
+                "Factorising": {
+                    syntax: "Factor[expression]",
+                    explanation: "Factorises the expression. ",
+                    example: "Input: Factor[x^2+4x+4]//TraditionalForm, Output: (x+2)^2"
+                },
+                "Completing the square": {
+                    syntax: "CompleteTheSquare[a_, b_, c_] := Return[a (x - b/(2 a))^2 - b^2/(4 a) + c] (Shift + Enter)",
+                    explanation: "Completes the square for the quadratic ax^2+bx+c=0. ",
+                    example: "Input: CompleteTheSquare[1, 2, 3], Output: "
+                },
+                "Discriminant": {
+                    syntax: "",
+                    explanation: "",
+                    example: ""
+                },
+                "Plotting graphs": {
+                    syntax: "",
+                    explanation: "",
+                    example: ""
+                } 
             }
-        }, 
-        T03: {},
-        T04: {},
-        T05: {},
-        T06: {},
-        T07: {},
-        T08: {},
-        T09: {},
-        T10: {}          
+
+        },
+        cubics: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        inverses: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        exponentials: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        trig: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        differentials: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        appsofDiff: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        integrals: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+          
     }, 
     "12MMET": {
-        T01: {}, 
-        T02: {}, 
-        T03: {},
-        T04: {},
-        T05: {},
-        T06: {},
-        T07: {},
-        T08: {},
-        T09: {},
-        T10: {}, 
-        T11: {}, 
-        T12: {}, 
-        T13: {}, 
-        T14: {}
+        differentials: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        functions: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        funcFamilies: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        polynomials: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        exponentials: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        trig: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        appsofDiff: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        integrals: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        combs: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        discProb: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        binomDistrib: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        contVars: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        normDistrib: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        sampling: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
     },  
     "11MSPE": {
-        T01: {}, 
-        T02: {}, 
-        T03: {},
-        T04: {},
-        T05: {},
-        T06: {},
-        T07: {},
-        T08: {},
-        T09: {},
-        T10: {}, 
-        T11: {}, 
-        T12: {}, 
-        T13: {}, 
-        T14: {},
-        T15: {} 
+        sequences: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        modulus: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        partFracs: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        triangleCircleMens: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        vectors: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        matrices: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        furtherTrig: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        complexNums: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        complexSubs: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        kinematics: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        counting: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        proofs: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        logic: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
+        graphTheory: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        }, 
+        randomVars: {
+            command1: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command2: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command3: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command4: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command5: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command6: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command7: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command8: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command9: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            },
+            command10: {
+                syntax: "",
+                explanation: "",
+                example: ""
+            }            
+        },
     }
 };
