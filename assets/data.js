@@ -76,373 +76,106 @@ export const commandData = {
                     example: ""
                 } 
             }
-
         },
         cubics: {
-            command1: {
+            factorising: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command2: {
+            quotientRemainder: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command3: {
+            plottingGraphs: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
+            rationalRootTheorem: {
                 syntax: "",
                 explanation: "",
                 example: ""
             }            
         },
         inverses: {
-            command1: {
+            findingInverse: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command2: {
+            poiWithInverse: {
                 syntax: "",
                 explanation: "",
                 example: ""
-            },
-            command3: {
+            }, 
+            plottingGraphs: {
                 syntax: "",
                 explanation: "",
                 example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            }            
+            }          
         },
         exponentials: {
-            command1: {
+            plottingGraphs: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
+            solvingEquations: {
                 syntax: "",
                 explanation: "",
                 example: ""
             }            
         },
         trig: {
-            command1: {
+            solvingDomain: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command2: {
+            plottingGraphs: {
                 syntax: "",
                 explanation: "",
                 example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            }            
+            }           
         },
         differentials: {
-            command1: {
+            diffing: {
                 syntax: "",
                 explanation: "",
                 example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            }            
+            },            
         },
         appsofDiff: {
-            command1: {
+            tangentLine: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command2: {
+            normalLine: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command3: {
+            stationaryPoints: {
                 syntax: "",
                 explanation: "",
                 example: ""
             },
-            command4: {
+            natureofSP: {
                 syntax: "",
                 explanation: "",
                 example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            }            
+            }           
         },
         integrals: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
+            integrate: {
                 syntax: "",
                 explanation: "",
                 example: ""
             }            
-        },
-          
+        }          
     }, 
     "12MMET": {
         differentials: {
