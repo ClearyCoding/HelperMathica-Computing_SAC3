@@ -53,7 +53,7 @@ function search(query) {
         if (matches.length === 0) {
             main.innerHTML += `
                 <h3 id="results-none">No Results For "${query}"</h3>
-                <h4 id="back">Back</h4>
+                <button id="back">Back</button>
             `
             document.querySelector(`#back`).addEventListener('click', () => {
                 displaySubjects();
@@ -171,7 +171,7 @@ function displayCommand(subject, topic, formula) {
         </div>
         <p>${commandData[subject][topic][formula].description}</p>
     `
-    main.innerHTML += `<h3 id="back">Back</h3>`;
+    main.innerHTML += `<button id="back">Back</button>`;
     document.querySelector(`#back`).addEventListener('click', () => {
         displayFormulas(subject, topic);
     })
