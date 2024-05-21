@@ -1,1690 +1,1686 @@
 export const commandData = {
-    "11MMET": {
-        linear: {
-            commands: {
-                solvingEquations: {
-                    syntax: "Solve[{equations}, {variables}, Reals]",
-                    explanation: "Finds the real values of the variables that makes the expression true." ,
-                    example: "Input: Solve[2x + 3 == 5, x, Reals], Output: x -> 1"
-                }, 
-                solvingInequalities: {
-                    syntax: "Reduce[{inequalities}, {variables}]", 
-                    explanation: "Reduces the expression to its simplest form.", 
-                    example: "Input: Reduce[2x + 3 <= 5, x, Reals], Output: x <= 1"
-                }, 
-                plottingGraphs: {
-                    syntax: "Plot[{expressions}, {variable, lowerBound, upperBound}]",
-                    explanation: "Plots the graph of the expressions over the domain and range specified.",
-                    example: "Input: Plot[2x + 3, {x, -10, 10}], Output: Graph of y=2x+3 where -10<=x<=10"
-                }, 
-                plottingGraphsWithParameters: {
-                    syntax: "Manipulate[Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}], {parameter, lowerBound, upperBound}] ",
-                    explanation: "Plots the graph, provides sliders to adjust the parameters as required",
-                    example: "Input: Manipulate[Plot[2x + c, {x, -10, 10}], {c, -10, 10}], Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])"
-                },  
-                distance: {
-                    syntax: "EuclidianDistance[{x1, y1}, {x2, y2}]",
-                    explanation: "Finds the distance between two points",
-                    example: "Input: EuclidianDistance[{1, 2}, {3, 4}], Output: 2*Sqrt[2]"   
-                }, 
-                midpoint: {
-                    syntax: "Midpoint[{x1, y1}, {x2, y2}]",
-                    explanation: "Finds the midpoint of (x1, y1) and (x2, y2). ",
-                    example: "Input: Midpoint[{1, 2}, {3, 4}], Output: {2, 3}"
-                }           
-            }
+    "Methods 1/2": {
+        "Linear": {
+            "Solving Equations": {
+                syntax: "Solve[{equations}, {variables}, Reals]",
+                description: "Finds the real values of the variables that makes the expression true." ,
+                example: "Input: Solve[2x + 3 == 5, x, Reals], Output: x -> 1"
+            }, 
+            "Solving In equalities": {
+                syntax: "Reduce[{inequalities}, {variables}]", 
+                description: "Reduces the expression to its simplest form.", 
+                example: "Input: Reduce[2x + 3 <= 5, x, Reals], Output: x <= 1"
+            }, 
+            "Plotting Graphs": {
+                syntax: "Plot[{expressions}, {variable, lowerBound, upperBound}]",
+                description: "Plots the graph of the expressions over the domain and range specified.",
+                example: "Input: Plot[2x + 3, {x, -10, 10}], Output: Graph of y=2x+3 where -10<=x<=10"
+            }, 
+            "Plotting Graphs With Parameters": {
+                syntax: "Manipulate[Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}], {parameter, lowerBound, upperBound}] ",
+                description: "Plots the graph, provides sliders to adjust the parameters as required",
+                example: "Input: Manipulate[Plot[2x + c, {x, -10, 10}], {c, -10, 10}], Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])"
+            },  
+            "Distance": {
+                syntax: "EuclidianDistance[{x1, y1}, {x2, y2}]",
+                description: "Finds the distance between two points",
+                example: "Input: EuclidianDistance[{1, 2}, {3, 4}], Output: 2*Sqrt[2]"   
+            }, 
+            "Midpoint": {
+                syntax: "Midpoint[{x1, y1}, {x2, y2}]",
+                description: "Finds the midpoint of (x1, y1) and (x2, y2). ",
+                example: "Input: Midpoint[{1, 2}, {3, 4}], Output: {2, 3}"
+            }           
+            
         }, 
-        probability: {
-            commands: {
-                findingPermutations: {
-                    syntax: "Permutations[{items}] ",
-                    explanation: "Finds the different permutations of arranging the items. ",
-                    example: "Input: Permutations[{A, B, C}], Output: {{A, B, C}, {A, C, B}, {B, A, C}, {B, C, A}, {C, A, B}, {C, B, A}}"
-                }, 
-                nPr: {
-                    syntax: "nPr[n_, k_]:= Return[n!/(n-k)!] (Shift + Enter)",
-                    explanation: "Finds the number of permutations in which n objects can be arranged in k spots. ",
-                    example: "Input: nPr[3, 2], Output: 6"
-                },
-                nCr: {
-                    syntax: "nCr[n_, k_]:= Return[n!/(k!(n-k)!)] (Shift + Enter)",
-                    explanation: "Finds the number of combinations in which n objects can be arranged in k spots.",
-                    example: "Input: nCr[3, 2], Output: 3"
-                }               
-            }
+        "Probability": {
+            "Finding Permutations": {
+                syntax: "Permutations[{items}] ",
+                description: "Finds the different permutations of arranging the items. ",
+                example: "Input: Permutations[{A, B, C}], Output: {{A, B, C}, {A, C, B}, {B, A, C}, {B, C, A}, {C, A, B}, {C, B, A}}"
+            }, 
+            "nPr": {
+                syntax: "nPr[n_, k_]:= Return[n!/(n-k)!] (Shift + Enter)",
+                description: "Finds the number of permutations in which n objects can be arranged in k spots. ",
+                example: "Input: nPr[3, 2], Output: 6"
+            },
+            "nCr": {
+                syntax: "nCr[n_, k_]:= Return[n!/(k!(n-k)!)] (Shift + Enter)",
+                description: "Finds the number of combinations in which n objects can be arranged in k spots.",
+                example: "Input: nCr[3, 2], Output: 3"
+            }               
+            
         }, 
-        quadratics: {
-            commands: {
-                "Factorising": {
-                    syntax: "Factor[expression]",
-                    explanation: "Factorises the expression. ",
-                    example: "Input: Factor[x^2+4x+4]//TraditionalForm, Output: (x+2)^2"
-                },
-                "Completing the square": {
-                    syntax: "CompleteTheSquare[a_, b_, c_] := Return[a (x - b/(2 a))^2 - b^2/(4 a) + c] (Shift + Enter)",
-                    explanation: "Completes the square for the quadratic ax^2+bx+c=0. ",
-                    example: "Input: CompleteTheSquare[1, 2, 3], Output: "
-                },
-                "Discriminant": {
-                    syntax: "",
-                    explanation: "",
-                    example: ""
-                },
-                "Plotting graphs": {
-                    syntax: "",
-                    explanation: "",
-                    example: ""
-                } 
+        "Quadratics": {
+            "Factorising": {
+                syntax: "Factor[expression]",
+                description: "Factorises the expression. ",
+                example: "Input: Factor[x^2+4x+4]//TraditionalForm, Output: (x+2)^2"
+            },
+            "Completing the square": {
+                syntax: "CompleteTheSquare[a_, b_, c_] := Return[a (x - b/(2 a))^2 - b^2/(4 a) + c] (Shift + Enter)",
+                description: "Completes the square for the quadratic ax^2+bx+c=0. ",
+                example: "Input: CompleteTheSquare[1, 2, 3], Output: "
+            },
+            "Discriminant": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "Plotting graphs": {
+                syntax: "",
+                description: "",
+                example: ""
             }
         },
-        cubics: {
-            factorising: {
+        "Cubics": {
+            "Factorising": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            quotientRemainder: {
+            "Quotient Remainder": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            plottingGraphs: {
+            "Plotting Graphs": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            rationalRootTheorem: {
+            "Rational Root Theorem": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        inverses: {
-            findingInverse: {
+        "Inverses": {
+            "Finding Inverse": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            poiWithInverse: {
+            "POI With Inverse": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }, 
-            plottingGraphs: {
+            "Plotting Graphs": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }          
         },
-        exponentials: {
-            plottingGraphs: {
+        "Exponentials": {
+            "Plotting Graphs": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            solvingEquations: {
+            "Solving Equations": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        trig: {
-            solvingDomain: {
+        "Trigonometry": {
+            "Solving Domain": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            plottingGraphs: {
+            "Plotting Graphs": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }           
         },
-        differentials: {
-            diffing: {
+        "Differentials": {
+            "Diffing": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },            
         },
-        appsofDiff: {
-            tangentLine: {
+        "Applications of Differentials": {
+            "Tangent Line": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            normalLine: {
+            "Normal Line": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            stationaryPoints: {
+            "Stationary Points": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            natureofSP: {
+            "Nature of SP": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }           
         },
-        integrals: {
-            integrate: {
+        "Integrals": {
+            "Integrate": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         }          
     }, 
-    "12MMET": {
-        differentials: {
-            command1: {
+    "Methods 3/4": {
+        "Differentials": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        functions: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        funcFamilies: {
-            command1: {
+        "Functions": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        polynomials: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        exponentials: {
-            command1: {
+        "Function Families": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        trig: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        appsofDiff: {
-            command1: {
+        "Polynomials": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        integrals: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        combs: {
-            command1: {
+        "Exponentials": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        discProb: {
-            command1: {
+        "Trigonometry": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        binomDistrib: {
-            command1: {
+        "Applications of Differentials": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        contVars: {
-            command1: {
+        "Integrals": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        normDistrib: {
-            command1: {
+        "Combinatorics": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        sampling: {
-            command1: {
+        "Discrete Probability": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Binomail Distribution": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Continuous Variables": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Normal Distribution": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Sampling": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
                 example: ""
             }            
         },
     },  
-    "11MSPE": {
-        sequences: {
-            command1: {
+    "Specialist 1/2": {
+        "Sequences": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        modulus: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        partFracs: {
-            command1: {
+        "Modulus": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        triangleCircleMens: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        vectors: {
-            command1: {
+        "Partial Fractions": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        matrices: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        furtherTrig: {
-            command1: {
+        "Triangle Circle Mensuration": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
-                example: ""
-            }            
-        },
-        complexNums: {
-            command1: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command2: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command3: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command4: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command5: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command6: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command7: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command8: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command9: {
-                syntax: "",
-                explanation: "",
-                example: ""
-            },
-            command10: {
-                syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        complexSubs: {
-            command1: {
+        "Vectors": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        kinematics: {
-            command1: {
+        "Matrices": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        counting: {
-            command1: {
+        "Further Trigonometry": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        proofs: {
-            command1: {
+        "Complex Numbers": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        logic: {
-            command1: {
+        "Complex Subsets": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
-        graphTheory: {
-            command1: {
+        "Kinematics": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Counting": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Proofs": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Logic": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
+                example: ""
+            }            
+        },
+        "Graph Theory": {
+            "command1": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command2": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command3": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command4": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command5": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command6": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command7": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command8": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command9": {
+                syntax: "",
+                description: "",
+                example: ""
+            },
+            "command10": {
+                syntax: "",
+                description: "",
                 example: ""
             }            
         }, 
-        randomVars: {
-            command1: {
+        "Random Variables": {
+            "command1": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command2: {
+            "command2": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command3: {
+            "command3": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command4: {
+            "command4": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command5: {
+            "command5": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command6: {
+            "command6": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command7: {
+            "command7": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command8: {
+            "command8": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command9: {
+            "command9": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             },
-            command10: {
+            "command10": {
                 syntax: "",
-                explanation: "",
+                description: "",
                 example: ""
             }            
         },
