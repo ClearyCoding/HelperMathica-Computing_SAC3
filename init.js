@@ -163,7 +163,31 @@ function displayFormulas(subject, topic) {
 }
 function displayCommand(subject, topic, formula) {
     generateHeader(subject, topic, formula)
-    main.innerHTML = ``
+    main.innerHTML = `
+        <h2>${formula}</h2>
+        <div class="command">
+            <h3 id="syntax">${commandData[subject][topic][formula].syntax}</h3>
+            <button id="copy"><img draggable="false" alt="Copy" src="/assets/images/clipboard.png"></button>
+        </div>
+        <p>${commandData[subject][topic][formula].description}</p>
+    `
+    main.innerHTML += `<h3 id="back">Back</h3>`;
+    document.querySelector(`#back`).addEventListener('click', () => {
+        displayFormulas(subject, topic);
+    })
+    document.querySelector('#copy').addEventListener('click', () => {
+        navigator.clipboard.writeText(commandData[subject][topic][formula].syntax)
+            .then(() => {
+                console.log('Text is copied to the clipboard');
+                document.querySelector('#copy img').src = "/assets/images/tick.png";
+                setTimeout(() => {
+                    document.querySelector('#copy img').src = "/assets/images/clipboard.png";
+                }, 4000);
+            })
+            .catch(err => {
+                console.error('Could not copy text: ', err);
+            });
+    })
 }
 function generateHeader(subject, topic, formula, other) {
     header.innerHTML = `

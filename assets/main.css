@@ -242,3 +242,36 @@ header {
     color: #eaeaea;
     text-decoration: underline;
 }
+#copy {
+    height: 3.5rem;
+    width: 3.5rem;
+    min-width: unset;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 0;
+    border-radius: 0;
+    margin: 0;
+}
+#copy img {
+    height: 2.5rem;
+}
+#copy:hover img {
+    filter: brightness(90%);
+}
+#syntax {
+    box-sizing: border-box;
+    border-right: 0;
+    padding: 0 10px;
+    color: black;
+}
+.command {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: solid 3px #a60202;
+    height: 3.5rem;
+    border-radius: 5px;
+    background-color: #fdf5e7;
+    margin: 20px;
+}
