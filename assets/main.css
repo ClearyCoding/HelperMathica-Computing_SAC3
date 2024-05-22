@@ -159,7 +159,7 @@ header {
 }
 #search-results {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 20rem);
+    grid-template-columns: repeat(auto-fit, 25rem);
 }
 
 #search-results-label {
