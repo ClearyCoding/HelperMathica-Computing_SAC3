@@ -1,4 +1,5 @@
 export const commandData = {
+    "Basics": {},
     "Methods 1/2": {
         "Linear": {
             "Solving Equations": {
