@@ -64,21 +64,16 @@ export const commandData = {
                 example: "Input: CompleteTheSquare[1, 2, 3], Output: "
             },
             "Discriminant": {
-                syntax: "",
-                description: "",
-                example: ""
-            },
-            "Plotting graphs": {
-                syntax: "",
-                description: "",
-                example: ""
+                syntax: "Discriminant[quadratic, x]",
+                description: "Finds the discriminant of the quadratic. ",
+                example: "Input: Discriminant[x^2,x], Output: 0"
             }
         },
         "Cubics": {
             "Factorising": {
-                syntax: "",
-                description: "",
-                example: ""
+                syntax: "Factor[expression]",
+                description: "Factorises the expression. ",
+                example: "Input: Factor[x^3 + 2 x + 3] // TraditionalForm, Output: (x+1) (x^2-x+3)"
             },
             "Finding Quotient and Remiander from Long Division": {
                 syntax: "PolynomialQuotientRemainder[dividend, divisor, x]",
