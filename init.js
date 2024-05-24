@@ -4,6 +4,7 @@ const main = document.querySelector('main');
 const header = document.querySelector('header')
 
 function search(query) {
+    console.log("Searching... ")
     if (query) {
         main.innerHTML = `
             <h3 id="search-results-label">Search Results:</h3>
@@ -100,12 +101,14 @@ function displayStart() {
         <button id="start_button">Start</button>
     `
     document.querySelector('#start_button').addEventListener('click', () => {
+        console.log("Begin!")
         displaySubjects()
     })
 }
 
 function displaySubjects() {
-    generateHeader()
+    console.log("Choosing subject...")
+    generateHeader()    
     let buttonsHTML = '';
     for (const subject in commandData) {
         const id = subject.replace(/[\s\/]/g, '-');
@@ -116,12 +119,14 @@ function displaySubjects() {
     for (const subject in commandData) {
         const id = subject.replace(/[\s\/]/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
+            console.log(`Subject chosen: ${subject}. `)
             displayTopics(subject);
         })
     }
 
 }
 function displayTopics(subject) {
+    console.log("Choosing topic...")
     generateHeader(subject)
     let buttonsHTML = '';
     for (const topic in commandData[subject]) {
@@ -134,6 +139,7 @@ function displayTopics(subject) {
     for (const topic in commandData[subject]) {
         const id = topic.replace(/[\s\/]/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
+            console.log(`Topic chosen: ${topic}`)
             displayFormulas(subject, topic);
         })
     }
@@ -143,6 +149,7 @@ function displayTopics(subject) {
     })
 }
 function displayFormulas(subject, topic) {
+    console.log("Choosing formula... ")
     generateHeader(subject, topic)
     let buttonsHTML = '';
     for (const formula in commandData[subject][topic]) {
@@ -154,6 +161,7 @@ function displayFormulas(subject, topic) {
     for (const formula in commandData[subject][topic]) {
         const id = formula.replace(/[\s\/]/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
+            console.log(`Formula chosen: ${formula}. `)
             displayCommand(subject, topic, formula);
         })
     }
@@ -162,6 +170,7 @@ function displayFormulas(subject, topic) {
     })
 }
 function displayCommand(subject, topic, formula) {
+    console.log("Command chosen!")
     generateHeader(subject, topic, formula)
     main.innerHTML = `
         <h2>${formula}</h2>
