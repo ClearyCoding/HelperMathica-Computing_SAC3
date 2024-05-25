@@ -93,7 +93,6 @@ function search(query) {
         }
     }
 }
-
 function displayStart() {
     header.innerHTML = ``
     main.innerHTML = `
@@ -105,7 +104,6 @@ function displayStart() {
         displaySubjects()
     })
 }
-
 function displaySubjects() {
     console.log("Choosing subject...")
     generateHeader()    
@@ -170,7 +168,6 @@ function displayFormulas(subject, topic) {
     })
 }
 function displayCommand(subject, topic, formula) {
-    console.log("Command chosen!")
     generateHeader(subject, topic, formula)
     main.innerHTML = `
         <h2>${formula}</h2>
@@ -187,7 +184,7 @@ function displayCommand(subject, topic, formula) {
     document.querySelector('#copy').addEventListener('click', () => {
         navigator.clipboard.writeText(commandData[subject][topic][formula].syntax)
             .then(() => {
-                console.log('Text is copied to the clipboard');
+                console.log('Command is copied to the clipboard');
                 document.querySelector('#copy img').src = "/assets/images/tick.png";
                 setTimeout(() => {
                     document.querySelector('#copy img').src = "/assets/images/clipboard.png";
