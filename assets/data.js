@@ -380,56 +380,30 @@ export const commandData = {
         }
     },
     "Spec 1/2": {
-        "Sequences": {
-            "command1": {
-                syntax: "",
-                description: "",
+        "Sequences & Series": {
+            "Defining a recurrence relation": {
+                syntax: "t[n_]:=r * t[n-1] + d; t[1]:= a",
+                description: "Defines a recurrence relation with first term a, common difference d, and common ratio r. ",
                 examples: ""
             },
-            "command2": {
-                syntax: "",
-                description: "",
+            "Defining an arithmetic/geometric sequence": {
+                syntax: "t[n_]:= a + (n - 1) * d",
+                description: "Defines an arithmetic sequence with first term a and common difference d. ",
+                examples: "",
+
+                syntax: "t[n_]:= a * r ^ (n - 1)",
+                description: "Defines an geometric sequence with first term a and common ratio r. ",
                 examples: ""
             },
-            "command3": {
-                syntax: "",
-                description: "",
-                examples: ""
+            "Finding an arithmetic/geometric series": {
+                syntax: "Sum[f, {i, lowerBound, upperBound}]",
+                description: "Finds the sum of f for all values of i between lowerBound and  upperBound.",
+                examples: "Input: Sum[t[n], {n, 0, 10}], Output: 20"
             },
-            "command4": {
-                syntax: "",
-                description: "",
-                examples: ""
-            },
-            "command5": {
-                syntax: "",
-                description: "",
-                examples: ""
-            },
-            "command6": {
-                syntax: "",
-                description: "",
-                examples: ""
-            },
-            "command7": {
-                syntax: "",
-                description: "",
-                examples: ""
-            },
-            "command8": {
-                syntax: "",
-                description: "",
-                examples: ""
-            },
-            "command9": {
-                syntax: "",
-                description: "",
-                examples: ""
-            },
-            "command10": {
-                syntax: "",
-                description: "",
-                examples: ""
+            "Finding infinite geometric series": {
+                syntax: "Sum[f, {i, lowerBound, upperBound}]",
+                description: "Finds the sum of f for all values of i between lowerBound and  upperBound.",
+                examples: "Input: Sum[t[n], {n, 0, 10}], Output: 20"
             }
         },
         "Modulus": {
@@ -458,8 +432,7 @@ export const commandData = {
 
                 syntax: "ChordLength[\[Theta]_, r_] := 2 r Sin[\[Theta]/2]",
                 description: "Custom function that finds the length of a chord.",
-                examples: ""
-                
+                examples: ""                
             }             
         },
         "Vectors": {
