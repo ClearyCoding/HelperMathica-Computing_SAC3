@@ -242,7 +242,7 @@ header {
     color: #eaeaea;
     text-decoration: underline;
 }
-#copy {
+#copy, #copy2, #copy3 {
     height: 3.5rem;
     width: 3.5rem;
     min-width: unset;
@@ -253,13 +253,13 @@ header {
     border-radius: 0;
     margin: 0;
 }
-#copy img {
+#copy img, #copy2 img, #copy3 img {
     height: 2.5rem;
 }
-#copy:hover img {
+#copy:hover img, #copy2:hover img, #copy3:hover img {
     filter: brightness(90%);
 }
-#syntax {
+#syntax, #syntax2, #syntax3 {
     box-sizing: border-box;
     border-right: 0;
     padding: 0 10px;

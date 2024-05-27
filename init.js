@@ -176,6 +176,24 @@ function displayCommand(subject, topic, formula) {
             <button id="copy"><img draggable="false" alt="Copy" src="/assets/images/clipboard.png"></button>
         </div>
         <p>${commandData[subject][topic][formula].description}</p>
+        ${'syntax2' in commandData[subject][topic][formula] ? 
+        `<div class="command">
+            <h3 id="syntax2">${commandData[subject][topic][formula].syntax2}</h3>
+            <button id="copy2"><img draggable="false" alt="Copy" src="/assets/images/clipboard.png"></button>
+        </div>`
+        : ''}
+        ${'description2' in commandData[subject][topic][formula] ?
+        `<p>${commandData[subject][topic][formula].description2}</p>`
+        : ''}
+        ${'syntax3' in commandData[subject][topic][formula] ?
+        `<div class="command">
+            <h3 id="syntax3">${commandData[subject][topic][formula].syntax3}</h3>
+            <button id="copy3"><img draggable="false" alt="Copy" src="/assets/images/clipboard.png"></button>
+        </div>`
+        : ''}
+        ${'description3' in commandData[subject][topic][formula] ?
+        `<p>${commandData[subject][topic][formula].description3}</p>`
+        : ''}
     `
     main.innerHTML += `<button id="back">Back</button>`;
     document.querySelector(`#back`).addEventListener('click', () => {

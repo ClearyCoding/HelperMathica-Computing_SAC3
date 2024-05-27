@@ -37,15 +37,15 @@ export const commandData = {
         "Trig": {
             "Sine, Cosine, and Tangent": {
                 syntax: "Sin[x]",
-                explanation: "Finds the sine of the angle given (in radians).",
+                description: "Finds the sine of the angle given (in radians).",
                 example: "Input: Sin[Pi/4], Output: 1/Sqrt[2]",
 
                 syntax2: "Cos[x]",
-                explanation2: "Finds the cosine of the angle given (in radians).",
+                description2: "Finds the cosine of the angle given (in radians).",
                 example2: "Input: Cos[Pi/4], Output: 1/Sqrt[2]",
 
                 syntax3: "Tan[x]",
-                explanation3: "Finds the tangent of the angle given (in radians).",
+                description3: "Finds the tangent of the angle given (in radians).",
                 example3: "Input: Tan[Pi/4], Output: 1"
             }
         },
@@ -86,7 +86,7 @@ export const commandData = {
         "Exponentials & Logs": {
             "Change Of Base": {
                 syntax: "ChangeOfBase[a_, b_] := Return[Log[a]/Log[b]]",
-                explanation: "Custom function that returns Log[b, a] as (Log[a]/Log[b]).",
+                description: "Custom function that returns Log[b, a] as (Log[a]/Log[b]).",
                 example: "InputChangeOfBase[3, 2], Output: Log[2]/Log[3]"
             }
         }
@@ -161,22 +161,22 @@ export const commandData = {
         "Exponentials & Logs": {
             "Change Of Base": {
                 syntax: "ChangeOfBase[a_, b_] := Return[Log[a]/Log[b]]",
-                explanation: "Custom function that returns Log[b, a] as (Log[a]/Log[b]).",
+                description: "Custom function that returns Log[b, a] as (Log[a]/Log[b]).",
                 example: "InputChangeOfBase[3, 2], Output: Log[2]/Log[3]"
             }
         },
         "Circular Functions": {
             "Sine, Cosine, and Tangent": {
                 syntax: "Sin[x]",
-                explanation: "Finds the sine of the angle given (in radians).",
+                description: "Finds the sine of the angle given (in radians).",
                 example: "Input: Sin[Pi/4], Output: 1/Sqrt[2]",
 
                 syntax2: "Cos[x]",
-                explanation2: "Finds the cosine of the angle given (in radians).",
+                description2: "Finds the cosine of the angle given (in radians).",
                 example2: "Input: Cos[Pi/4], Output: 1/Sqrt[2]",
 
                 syntax3: "Tan[x]",
-                explanation3: "Finds the tangent of the angle given (in radians).",
+                description3: "Finds the tangent of the angle given (in radians).",
                 example3: "Input: Tan[Pi/4], Output: 1"
             },
             "Solutions within the Domain": {
@@ -257,15 +257,15 @@ export const commandData = {
         "Circular Functions": {
             "Sine, Cosine, and Tangent": {
                 syntax: "Sin[x]",
-                explanation: "Finds the sine of the angle given (in radians).",
+                description: "Finds the sine of the angle given (in radians).",
                 example: "Input: Sin[Pi/4], Output: 1/Sqrt[2]",
 
                 syntax2: "Cos[x]",
-                explanation2: "Finds the cosine of the angle given (in radians).",
+                description2: "Finds the cosine of the angle given (in radians).",
                 example2: "Input: Cos[Pi/4], Output: 1/Sqrt[2]",
 
                 syntax3: "Tan[x]",
-                explanation3: "Finds the tangent of the angle given (in radians).",
+                description3: "Finds the tangent of the angle given (in radians).",
                 example3: "Input: Tan[Pi/4], Output: 1"
             },
             "Solutions within a Domain": {
