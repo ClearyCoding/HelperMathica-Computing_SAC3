@@ -360,13 +360,13 @@ export const commandData = {
                 description: "Calculates the mean for the probability distribution d.",
                 example: "Input: Mean[ProbabilityDistribution[-3/4*x*(x-2),{x,0,2}]], Output: 1",
 
-                syntax: "Variance[d]",
-                description: "Calculates the variance for the probability distribution d.",
-                example: "Input: Variance[ProbabilityDistribution[-3/4*x*(x-2),{x,0,2}]], Output: 1/5",
+                syntax2: "Variance[d]",
+                description2: "Calculates the variance for the probability distribution d.",
+                example2: "Input: Variance[ProbabilityDistribution[-3/4*x*(x-2),{x,0,2}]], Output: 1/5",
 
-                syntax: "StandardDeviation[d]",
-                description: "Calculates the standard deviation for the probability distribution d.",
-                example: "Input: StandardDeviation[ProbabilityDistribution[-3/4*x*(x-2),{x,0,2}]], Output: 1/Sqrt[5]",
+                syntax3: "StandardDeviation[d]",
+                description3: "Calculates the standard deviation for the probability distribution d.",
+                example3: "Input: StandardDeviation[ProbabilityDistribution[-3/4*x*(x-2),{x,0,2}]], Output: 1/Sqrt[5]",
 
                 
             }
@@ -421,13 +421,13 @@ export const commandData = {
                 description: "Custom function that finds the area of a sector.",
                 example: "",
 
-                syntax: "SegementArea[\[Theta]_, r_] := 1/2 r^2 (\[Theta] - Sin[\[Theta]])",
-                description: "Custom function that finds the area of a segment.",
-                example: "",
+                syntax2: "SegementArea[\[Theta]_, r_] := 1/2 r^2 (\[Theta] - Sin[\[Theta]])",
+                description2: "Custom function that finds the area of a segment.",
+                example2: "",
 
-                syntax: "ChordLength[\[Theta]_, r_] := 2 r Sin[\[Theta]/2]",
-                description: "Custom function that finds the length of a chord.",
-                example: ""                
+                syntax3: "ChordLength[\[Theta]_, r_] := 2 r Sin[\[Theta]/2]",
+                description3: "Custom function that finds the length of a chord.",
+                example3: ""
             }             
         },
         "Vectors": {
