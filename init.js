@@ -38,8 +38,8 @@ function search(query) {
                         }
                     }
                     for (const formula in commandData[subject][topic]) {
-                        if (formula.toLowerCase().includes(query_split[i].toLowerCase()) ||
-                            commandData[subject][topic][formula].description.toLowerCase().includes(query_split[i].toLowerCase())) {
+                        if (formula && formula.toLowerCase().includes(query_split[i].toLowerCase()) ||
+                            commandData[subject][topic][formula] && commandData[subject][topic][formula].description && commandData[subject][topic][formula].description.toLowerCase().includes(query_split[i].toLowerCase())) {
                             let match = [subject, topic, formula];
                             if (!uniqueMatches.has(JSON.stringify(match))) {
                                 uniqueMatches.add(JSON.stringify(match));
