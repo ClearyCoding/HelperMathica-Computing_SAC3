@@ -1,27 +1,29 @@
 export const commandData = {
-    "Basics": {
-        "Equations": {
-            syntax: "Solve[{equations}, {variables}, Reals]",
-            description: "Finds the real values of the variables that makes the expression true." ,
-            example: "Input: Solve[2x + 3 == 5, x, Reals], Output: x -> 1"
-        },
-        "Inequalities": {
-            syntax: "Reduce[{inequalities}, {variables}]",
-            description: "Reduces the expression to its simplest form.",
-            example: "Input: Reduce[2x + 3 <= 5, x, Reals], Output: x <= 1"
-        },
-        "Graphs": {
-            syntax: "Plot[{expressions}, {variable, lowerBound, upperBound}]",
-            description: "Plots the graph of the expressions over the domain and range specified.",
-            example: "Input: Plot[2x + 3, {x, -10, 10}], Output: Graph of y=2x+3 where -10<=x<=10"
-        },
-        "Graphs With Parameters": {
-            syntax: "Manipulate[Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}], {parameter, lowerBound, upperBound}] ",
-            description: "Plots the graph, provides sliders to adjust the parameters as required",
-            example: "Input: Manipulate[Plot[2x + c, {x, -10, 10}], {c, -10, 10}], Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])"
+    "General Commands" : {
+        "Basics": {
+            "Equations": {
+                syntax: "Solve[{equations}, {variables}, Reals]",
+                description: "Finds the real values of the variables that makes the expression true." ,
+                example: "Input: Solve[2x + 3 == 5, x, Reals], Output: x -> 1"
+            },
+            "Inequalities": {
+                syntax: "Reduce[{inequalities}, {variables}]",
+                description: "Reduces the expression to its simplest form.",
+                example: "Input: Reduce[2x + 3 <= 5, x, Reals], Output: x <= 1"
+            },
+            "Graphs": {
+                syntax: "Plot[{expressions}, {variable, lowerBound, upperBound}]",
+                description: "Plots the graph of the expressions over the domain and range specified.",
+                example: "Input: Plot[2x + 3, {x, -10, 10}], Output: Graph of y=2x+3 where -10<=x<=10"
+            },
+            "Graphs With Parameters": {
+                syntax: "Manipulate[Plot[{expressions}, {variables, lowerBound, upperBound}, PlotRange -> {lowerBound, upperBound}], {parameter, lowerBound, upperBound}] ",
+                description: "Plots the graph, provides sliders to adjust the parameters as required",
+                example: "Input: Manipulate[Plot[2x + c, {x, -10, 10}], {c, -10, 10}], Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])"
+            }
         }
-    },
-    "Core Maths 10": {
+    },    
+    "Core Maths": {
         "Linear": {
             "Distance formula": {
                 syntax: "EuclidianDistance[{x1, y1}, {x2, y2}]",
@@ -427,7 +429,7 @@ export const commandData = {
 
                 syntax3: "ChordLength[\[Theta]_, r_] := 2 r Sin[\[Theta]/2]",
                 description3: "Custom function that finds the length of a chord.",
-                example3: ""
+                example3: ""                
             }             
         },
         "Vectors": {
