@@ -21,7 +21,7 @@ export const commandData = {
             example: "Input: Manipulate[Plot[2x + c, {x, -10, 10}], {c, -10, 10}], Output: Graph of y = 2x + c with a slider for the values of c (between [-10, 10])"
         }
     },
-    "10 Core Maths": {
+    "Core Maths 10": {
         "Linear": {
             "Distance formula": {
                 syntax: "EuclidianDistance[{x1, y1}, {x2, y2}]",
