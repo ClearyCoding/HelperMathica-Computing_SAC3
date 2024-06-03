@@ -32,7 +32,7 @@ function search(query) {
                 for (const semester in commandData[subject]) {
                     for (const topic in commandData[subject][semester]) {
                         if (topic.toLowerCase().includes(query_split[i].toLowerCase())) {
-                            let match = [subject, topic];
+                            let match = [subject, semester, topic];
                             if (!uniqueMatches.has(JSON.stringify(match))) {
                                 uniqueMatches.add(JSON.stringify(match));
                                 matches.push(match);
@@ -40,8 +40,8 @@ function search(query) {
                         }
                         for (const formula in commandData[subject][semester][topic]) {
                             if (formula && formula.toLowerCase().includes(query_split[i].toLowerCase()) ||
-                                commandData[subject][topic][formula] && commandData[subject][topic][formula].description && commandData[subject][topic][formula].description.toLowerCase().includes(query_split[i].toLowerCase())) {
-                                let match = [subject, topic, formula];
+                                commandData[subject][semester][topic][formula] && commandData[subject][semester][topic][formula].description && commandData[subject][semester][topic][formula].description.toLowerCase().includes(query_split[i].toLowerCase())) {
+                                let match = [subject, semester, topic, formula];
                                 if (!uniqueMatches.has(JSON.stringify(match))) {
                                     uniqueMatches.add(JSON.stringify(match));
                                     matches.push(match);
@@ -67,13 +67,13 @@ function search(query) {
             for (const [index, match] of matches.entries()) {
                 document.querySelector('#search-results').innerHTML += `
                     <article class="search-result">
-                        <h4 class="search-result-type">${['Subject', 'Topic', 'Formula'][match.length - 1]}</h4>
+                        <h4 class="search-result-type">${['Subject', 'Semester', 'Topic', 'Formula'][match.length - 1]}</h4>
                         <h4 class="search-result-dir">
-                            ${match.length > 1 ? match[0] : ''}
-                            ${match.length > 2 ? ` > ${match[1]}` : ''}
+                            ${match.length > 2 ? match[0] : ''}
+                            ${match.length > 3 ? ` > ${match[2]}` : ''}
                         </h4>
                         <h3 id="search-result-${index}" onclick="">${match[match.length - 1]}</h3>
-                        ${match.length === 3 ? `<p>${commandData[match[0]][match[1]][match[2]].description}</p>` : ''}
+                        ${match.length === 4 ? `<p>${commandData[match[0]][match[1]][match[2]][match[3]].description}</p>` : ''}
                     </article>
                `
             }
@@ -82,10 +82,10 @@ function search(query) {
                 document.querySelector(`#search-result-${index}`).addEventListener('click', () => {
                     if (match.length === 1) {
                         displayTopics(match[0])
-                    } else if (match.length === 2) {
-                        displayFormulas(match[0], match[1])
                     } else if (match.length === 3) {
-                        displayCommand(match[0], match[1], match[2])
+                        displayFormulas(match[0], match[1], match[2])
+                    } else if (match.length === 4) {
+                        displayCommand(match[0], match[1], match[2], match[3])
                     }
                 })
             }
