@@ -29,21 +29,23 @@ function search(query) {
                         matches.push(match); // Push the match into the matches array
                     }
                 }
-                for (const topic in commandData[subject]) {
-                    if (topic.toLowerCase().includes(query_split[i].toLowerCase())) {
-                        let match = [subject, topic];
-                        if (!uniqueMatches.has(JSON.stringify(match))) {
-                            uniqueMatches.add(JSON.stringify(match));
-                            matches.push(match);
-                        }
-                    }
-                    for (const formula in commandData[subject][topic]) {
-                        if (formula && formula.toLowerCase().includes(query_split[i].toLowerCase()) ||
-                            commandData[subject][topic][formula] && commandData[subject][topic][formula].description && commandData[subject][topic][formula].description.toLowerCase().includes(query_split[i].toLowerCase())) {
-                            let match = [subject, topic, formula];
+                for (const semester in commandData[subject]) {
+                    for (const topic in commandData[subject][semester]) {
+                        if (topic.toLowerCase().includes(query_split[i].toLowerCase())) {
+                            let match = [subject, topic];
                             if (!uniqueMatches.has(JSON.stringify(match))) {
                                 uniqueMatches.add(JSON.stringify(match));
                                 matches.push(match);
+                            }
+                        }
+                        for (const formula in commandData[subject][semester][topic]) {
+                            if (formula && formula.toLowerCase().includes(query_split[i].toLowerCase()) ||
+                                commandData[subject][topic][formula] && commandData[subject][topic][formula].description && commandData[subject][topic][formula].description.toLowerCase().includes(query_split[i].toLowerCase())) {
+                                let match = [subject, topic, formula];
+                                if (!uniqueMatches.has(JSON.stringify(match))) {
+                                    uniqueMatches.add(JSON.stringify(match));
+                                    matches.push(match);
+                                }
                             }
                         }
                     }
@@ -112,7 +114,7 @@ function displaySubjects() {
         const id = subject.replace(/[\s\/,&]/g, '-');
         buttonsHTML += `<button id="${id}">${subject}</button>`;
     }
-    main.innerHTML = `<section id="buttons">${buttonsHTML}</section>`;
+    main.innerHTML = `<section class="buttons">${buttonsHTML}</section>`;
 
     for (const subject in commandData) {
         const id = subject.replace(/[\s\/,&]/g, '-');
@@ -126,81 +128,90 @@ function displaySubjects() {
 function displayTopics(subject) {
     console.log("Choosing topic...")
     generateHeader(subject)
-    let buttonsHTML = '';
-    for (const topic in commandData[subject]) {
-        const id = topic.replace(/[\s\/,&]/g, '-');
-        buttonsHTML += `<button id="${id}">${topic}</button>`;
+    let semestersHTML = '';
+    for (const semester in commandData[subject]) {
+        let buttonsHTML = '';
+        for (const topic in commandData[subject][semester]) {
+            const id = topic.replace(/[\s\/,&]/g, '-');
+            buttonsHTML += `<button id="${id}">${topic}</button>`;
+        }
+        semestersHTML += `<section class="buttons buttons-with-back">
+                                            <h2 class="semester-title">${semester}</h2>
+                                            ${buttonsHTML}
+                                        </section>`;
     }
-    main.innerHTML = `<section id="buttons" class="buttons-with-back">${buttonsHTML}</section>`;
+    main.innerHTML = `<section id="semesters-group">${semestersHTML}</section>`
     main.innerHTML += `<h3 id="back">Back</h3>`;
 
-    for (const topic in commandData[subject]) {
-        const id = topic.replace(/[\s\/,&]/g, '-');
-        document.querySelector(`#${id}`).addEventListener('click', () => {
-            console.log(`Topic chosen: ${topic}`)
-            displayFormulas(subject, topic);
-        })
+    for (const semester in commandData[subject]) {
+        for (const topic in commandData[subject][semester]) {
+            const id = topic.replace(/[\s\/,&]/g, '-');
+            document.querySelector(`#${id}`).addEventListener('click', () => {
+                console.log(`Topic chosen: ${topic}`)
+                displayFormulas(subject, semester, topic);
+            })
+        }
     }
 
     document.querySelector(`#back`).addEventListener('click', () => {
         displaySubjects();
     })
 }
-function displayFormulas(subject, topic) {
+function displayFormulas(subject, semester, topic) {
     console.log("Choosing formula... ")
     generateHeader(subject, topic)
     let buttonsHTML = '';
-    for (const formula in commandData[subject][topic]) {
+    for (const formula in commandData[subject][semester][topic]) {
         const id = formula.replace(/[\s\/,&]/g, '-');
         buttonsHTML += `<button id="${id}">${formula}</button>`;
     }
-    main.innerHTML = `<section id="buttons" class="buttons-with-back">${buttonsHTML}</section>`;
+    main.innerHTML = `<section class="buttons buttons-with-back">${buttonsHTML}</section>`;
     main.innerHTML += `<h3 id="back">Back</h3>`;
-    for (const formula in commandData[subject][topic]) {
+    for (const formula in commandData[subject][semester][topic]) {
         const id = formula.replace(/[\s\/,&]/g, '-');
         document.querySelector(`#${id}`).addEventListener('click', () => {
             console.log(`Formula chosen: ${formula}. `)
-            displayCommand(subject, topic, formula);
+            displayCommand(subject, semester, topic, formula);
         })
     }
     document.querySelector(`#back`).addEventListener('click', () => {
         displayTopics(subject);
     })
 }
-function displayCommand(subject, topic, formula) {
+function displayCommand(subject, semester, topic, formula) {
     generateHeader(subject, topic, formula)
     main.innerHTML = `
         <h2>${formula}</h2>
         <div class="command">
-            <h3 id="syntax">${commandData[subject][topic][formula].syntax}</h3>
+            <h3 id="syntax">${commandData[subject][semester][topic][formula].syntax}</h3>
             <button id="copy"><img draggable="false" alt="Copy" src="/assets/images/clipboard.png"></button>
         </div>
-        <p>${commandData[subject][topic][formula].description}</p>
-        ${'syntax2' in commandData[subject][topic][formula] ? 
+        <p>${commandData[subject][semester][topic][formula].description}</p>
+        ${'syntax2' in commandData[subject][semester][topic][formula] ? 
         `<div class="command">
-            <h3 id="syntax2">${commandData[subject][topic][formula].syntax2}</h3>
+            <h3 id="syntax2">${commandData[subject][semester][topic][formula].syntax2}</h3>
             <button id="copy2"><img draggable="false" alt="Copy" src="/assets/images/clipboard.png"></button>
         </div>`
         : ''}
-        ${'description2' in commandData[subject][topic][formula] ?
-        `<p>${commandData[subject][topic][formula].description2}</p>`
+        ${'description2' in commandData[subject][semester][topic][formula] ?
+        `<p>${commandData[subject][semester][topic][formula].description2}</p>`
         : ''}
-        ${'syntax3' in commandData[subject][topic][formula] ?
+        ${'syntax3' in commandData[subject][semester][topic][formula] ?
         `<div class="command">
-            <h3 id="syntax3">${commandData[subject][topic][formula].syntax3}</h3>
+            <h3 id="syntax3">${commandData[subject][semester][topic][formula].syntax3}</h3>
             <button id="copy3"><img draggable="false" alt="Copy" src="/assets/images/clipboard.png"></button>
         </div>`
         : ''}
-        ${'description3' in commandData[subject][topic][formula] ?
-        `<p>${commandData[subject][topic][formula].description3}</p>`
+        ${'description3' in commandData[subject][semester][topic][formula] ?
+        `<p>${commandData[subject][semester][topic][formula].description3}</p>`
         : ''}
     `
     main.innerHTML += `<button id="back">Back</button>`;
     document.querySelector(`#back`).addEventListener('click', () => {
-        displayFormulas(subject, topic);
+        displayFormulas(subject, semester, topic);
     })
     document.querySelector('#copy').addEventListener('click', () => {
-        navigator.clipboard.writeText(commandData[subject][topic][formula].syntax)
+        navigator.clipboard.writeText(commandData[subject][semester][topic][formula].syntax)
             .then(() => {
                 console.log('Command is copied to the clipboard');
                 document.querySelector('#copy img').src = "/assets/images/tick.png";
@@ -213,7 +224,7 @@ function displayCommand(subject, topic, formula) {
             });
     })
 }
-function generateHeader(subject, topic, formula, other) {
+function generateHeader(subject, semester, topic, formula, other) {
     header.innerHTML = `
         <header>
             <img draggable="false" id="header-company" src="/assets/images/product_full.webp" alt="ITer8ive Solutions HelperMathica">
@@ -256,12 +267,12 @@ function generateHeader(subject, topic, formula, other) {
     }
     if (topic) {
         document.querySelector('#nav-topic').addEventListener('click', () => {
-            displayFormulas(subject, topic);
+            displayFormulas(subject, semester, topic);
         })
     }
     if (formula) {
         document.querySelector('#nav-formula').addEventListener('click', () => {
-            displayCommand(subject, topic, formula);
+            displayCommand(subject, semester, topic, formula);
         })
     }
     document.querySelector('#header-company').addEventListener('click', () => {

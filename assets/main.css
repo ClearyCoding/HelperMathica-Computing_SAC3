@@ -90,7 +90,7 @@ header {
     text-decoration: underline;
 }
 
-#buttons {
+.buttons {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,8 +98,15 @@ header {
 .buttons-with-back {
     margin-top: 2.85rem;
 }
-#buttons button {
+.buttons button {
     width: 16rem;
+}
+#semesters-group {
+    display: flex;
+}
+.semester-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
 }
 
 #github-card {
